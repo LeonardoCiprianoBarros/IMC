@@ -11,14 +11,31 @@ btn.addEventListener("click", function (event) {
     // cria a tr a td do paciente 
     var tr = montartr(paciente);
 
+    var erros = validaPaciente(paciente);
+    console.log(erros);
+    if (erros.length > 0){
+        exibiMensagensDeErros(erros);
+        return; 
+    }
+
     // adicionando paciente a tabela
     var tabela = document.querySelector('#tabela-pacientes');
 
     tabela.appendChild(tr);
 
+    form.reset();
+    document.querySelector("ul").innerHTML = "";
 
 });
-
+function exibiMensagensDeErros(erros){
+    var ul = document.querySelector("#mensagens-erro");   
+    ul.innerHTML = "";
+    erros.forEach(function(erro) {
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+    });
+}
 function pacienteInfo(form) {
     var paciente = {
         nome: form.nome.value,
@@ -35,11 +52,11 @@ function montartr(paciente) {
     var tr = document.createElement("tr");
     tr.classList.add("paciente");
 
-    var tdnome = montatd(paciente.nome, "info-nome");
-    var tdpeso = montatd(paciente.peso, "info-peso");
-    var tdAltura = montatd(paciente.altura, "info-altura");
-    var tdgordura = montatd(paciente.gordura, "info-gordura");
-    var imctd = montatd(paciente.imc, "info-imc");
+   /*  var tdnome = ;
+    var tdpeso = ;
+    var tdAltura = ;
+    var tdgordura = ;
+    var imctd = ; */
 
     /* tdnome.textContent = paciente.nome;
     tdpeso.textContent = paciente.peso;
@@ -47,11 +64,11 @@ function montartr(paciente) {
     tdgordura.textContent = paciente.gordura;
     imctd.textContent = paciente.imc;
  */
-    tr.appendChild(tdnome);
-    tr.appendChild(tdpeso);
-    tr.appendChild(tdAltura);
-    tr.appendChild(tdgordura);
-    tr.appendChild(imctd);
+    tr.appendChild(montatd(paciente.nome, "info-nome"));
+    tr.appendChild(montatd(paciente.peso, "info-peso"));
+    tr.appendChild(montatd(paciente.altura, "info-altura"));
+    tr.appendChild(montatd(paciente.gordura, "info-gordura"));
+    tr.appendChild(montatd(paciente.imc, "info-imc"));
 
     return tr
 
@@ -64,3 +81,15 @@ function montartr(paciente) {
     
     return td;
 } 
+function validaPaciente (paciente) {
+
+    var erros = [];
+    if (paciente.nome.length == 0) erros.push("coloque um nome");
+
+    if (!validpeso(paciente.peso)) erros.push("o peso informado é inválido");
+
+    if (!validaltura(paciente.altura))  erros.push("a altura informada é inválida"); 
+
+    if (paciente.gordura.length == 0)  erros.push("a gordura informada é inválida"); 
+return erros;
+}
