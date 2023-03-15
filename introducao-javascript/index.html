@@ -18,6 +18,9 @@
 		<main>
 			<section class="container">
 				<h2>Meus pacientes</h2>
+				<label for="filtrar-tabela">Procure por paciente:</label>
+				<input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite o nome do Paciente">
+				
 				<table>
 					<thead>
 						<tr>
@@ -69,7 +72,9 @@
 						</tr>
 					</tbody>
 				</table>
-
+				<span id="erro-404" class="invisivel"> Erro ao Buscar os Pacientes</span>
+				<button id="buscar-paciente" class="botao bto-principal">Buscar Paciente</button>
+				
 			</section>
 		</main>
 		<!-- ... -->
@@ -101,5 +106,8 @@
 </section>
 			<script src="js/calcula-imc.js"></script>
 			<script src="js/form.js"></script>
+			<script src= "js/remove-paciente.js"></script>
+			<script src="js/filtrar.js"></script>
+			<script src="js/buscar-paciente..js"></script>
 	</body>
 </html>
