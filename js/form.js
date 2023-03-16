@@ -48,10 +48,10 @@ function exibiMensagensDeErros(erros){
 function pacienteInfo(form) {
     var paciente = {
         nome: form.nome.value,
-        peso: form.peso.value,
-        altura: form.altura.value,
+        peso: form.peso.value.replace(/,/g, "."),
+        altura: form.altura.value.replace(/,/g, "."),
         gordura: form.gordura.value,
-        imc: calcularimc(form.peso.value, form.altura.value)
+        imc: calcularimc(form.peso.value.replace(/,/g, "."), form.altura.value.replace(/,/g, "."))
     }
     return paciente;
 }

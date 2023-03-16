@@ -3,6 +3,10 @@
  }
 
 body{
+	background-image: url("../img/pngtree-fruit-honey-jewish-new-year-blue-border-background-picture-image_1243884.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+
 	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 }
@@ -18,11 +22,14 @@ header h1{
 	font-size: 2em;
 	display:inline-block;
 	vertical-align:	middle;
+	
 }
 header h2{
+	border: 1px solid black;
 	font-size: 2em;
 	display:inline-block;
 	vertical-align:	middle;
+	
 }
 
 header .container:before{
@@ -63,6 +70,7 @@ td, th {
 	margin: 0;
 	border: 1px solid #ccc;
 	text-align: center;
+	border-color: black
 }
 
 th{
@@ -156,3 +164,11 @@ button[disabled=disabled], button:disabled {
 .invisivel {
 	display: none;
 }
+
+#filtrar-tabela{
+	width: 200px;
+}
+h2{
+	margin-top: 40px;
+}
+
